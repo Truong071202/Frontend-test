@@ -1,24 +1,22 @@
 import React from "react";
 
 const LineChart = () => {
-  // Data for the chart (increasing, with more points)
-  const data = [0, 2, 5, 10, 15, 20, 28, 40]; // More points added
+  // Data for the chart
+  const data = [0, 2, 5, 10, 15, 20, 28, 40];
   const maxValue = Math.max(...data);
   const height = 220; // Chart height
   const width = 460; // Chart width
 
-  // Calculate points for the polyline
   const points = data
     .map((value, index) => {
       const x = (index / (data.length - 1)) * width; // Calculate x value as a percentage
       const y = height - (value / maxValue) * height; // Calculate y value as a percentage
       return `${x},${y}`; // Format points for the line
     })
-    .join(" "); // Join points into a string
+    .join(" ");
 
   return (
     <div className="relative">
-      {/* Container for the dashed lines overlay */}
       <div className="absolute inset-0 mb-1">
         <div
           style={{
